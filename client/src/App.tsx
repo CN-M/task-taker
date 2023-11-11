@@ -1,11 +1,13 @@
 import "./App.css";
 
-import { Display } from "./display.js";
+import { AddTodo } from "./components/addTodo.js";
+import { Display } from "./components/display.js";
 
 function App() {
   return (
-    <div className="h-screen w-screen flex flex-col justify-center items-center bg-blue-400">
+    <div className="h-full w-full flex flex-col justify-center items-cente">
       <Display />
+      <AddTodo />
     </div>
   );
 }

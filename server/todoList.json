@@ -1,0 +1,14 @@
+[
+  {
+    "task": "Go to the gym",
+    "completed": true
+  },
+  {
+    "task": "Buy groceries",
+    "completed": false
+  },
+  {
+    "task": "Clean the fridge",
+    "completed": false
+  }
+]
