@@ -10,5 +10,9 @@
   {
     "task": "Clean the fridge",
     "completed": false
+  },
+  {
+    "task": "Do Drugs",
+    "completed": true
   }
 ]

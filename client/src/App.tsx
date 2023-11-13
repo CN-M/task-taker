@@ -1,13 +1,14 @@
 import "./App.css";
 
-import { AddTodo } from "./components/addTodo.js";
-import { Display } from "./components/display.js";
+import { AddTask } from "./components/addTask";
+import { Display } from "./components/display";
 
 function App() {
   return (
-    <div className="h-full w-full flex flex-col justify-center items-cente">
+    <div className="h-full w-full flex flex-col justify-center space-y-4">
+      <h1>My Tasks</h1>
       <Display />
-      <AddTodo />
+      <AddTask />
     </div>
   );
 }
