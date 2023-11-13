@@ -1,18 +1,1 @@
-[
-  {
-    "task": "Go to the gym",
-    "completed": true
-  },
-  {
-    "task": "Buy groceries",
-    "completed": false
-  },
-  {
-    "task": "Clean the fridge",
-    "completed": false
-  },
-  {
-    "task": "Do Drugs",
-    "completed": true
-  }
-]
+[{"task":"Go to the gym","completed":true},{"task":"Buy groceries","completed":true},{"task":"Clean the fridge","completed":false},{"task":"Do Drugs","completed":false},{"task":"Do Drugs again","completed":false}]

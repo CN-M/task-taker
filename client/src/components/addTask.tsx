@@ -28,10 +28,7 @@ export const AddTask = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleTask = (e: any) => {
     e.preventDefault();
-
     addTask();
-
-    console.log(task);
   };
 
   return (
