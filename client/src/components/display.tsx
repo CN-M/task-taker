@@ -10,6 +10,14 @@ export const Display = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
+  const getData = async () => {
+    const res = await fetch("http://localhost:8000/");
+    const data = await res.json();
+
+    setTodos(data);
+    setIsLoading(false);
+  };
+
   const deleteTask = async (idx: number) => {
     try {
       const res = await fetch("http://localhost:8000/", {
@@ -45,14 +53,6 @@ export const Display = () => {
   };
 
   useEffect(() => {
-    const getData = async () => {
-      const res = await fetch("http://localhost:8000/");
-      const data = await res.json();
-
-      setTodos(data);
-      setIsLoading(false);
-    };
-
     getData();
   }, [todos]);
 

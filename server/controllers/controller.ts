@@ -1,9 +1,7 @@
-import express, { NextFunction, Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import fs from "fs";
 
 import { Todo } from "../types";
-
-const indexRouter = express.Router();
 
 // GET All Tasks // POST
 export const getTasks = async (
@@ -14,7 +12,12 @@ export const getTasks = async (
   let rawData = fs.readFileSync("./server/todoList.json", "utf-8");
   let tasks: Todo[] = JSON.parse(rawData);
 
-  res.status(200).json(tasks);
+  fs.readFile("./server/todoList.json", "utf-8", (err, data) => {
+    let rawData = data;
+    console.log(rawData);
+
+    res.status(200).json(tasks);
+  });
 };
 
 // Create Task // POST

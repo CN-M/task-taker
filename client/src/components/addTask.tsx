@@ -29,6 +29,7 @@ export const AddTask = () => {
   const handleTask = (e: any) => {
     e.preventDefault();
     addTask();
+    setTask("");
   };
 
   return (

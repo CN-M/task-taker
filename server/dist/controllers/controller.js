@@ -4,14 +4,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteTask = exports.updateTask = exports.createTask = exports.getTasks = void 0;
-const express_1 = __importDefault(require("express"));
 const fs_1 = __importDefault(require("fs"));
-const indexRouter = express_1.default.Router();
 // GET All Tasks // POST
 const getTasks = async (req, res, next) => {
     let rawData = fs_1.default.readFileSync("./server/todoList.json", "utf-8");
     let tasks = JSON.parse(rawData);
-    res.status(200).json(tasks);
+    fs_1.default.readFile("./server/todoList.json", "utf-8", (err, data) => {
+        let rawData = data;
+        console.log(rawData);
+        res.status(200).json(tasks);
+    });
 };
 exports.getTasks = getTasks;
 // Create Task // POST
