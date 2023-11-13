@@ -1,8 +1,10 @@
-import { useState } from "react";
-
-export const AddTask = () => {
-  const [task, setTask] = useState("");
-
+export const AddTask = ({
+  task,
+  setTask,
+}: {
+  task: string;
+  setTask: Dispatch<SetStateAction<Todo[]>>;
+}) => {
   const addTask = async () => {
     try {
       const res = await fetch("http://localhost:8000/", {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { cn } from "../lib/utils";
 
 type Todo = {
@@ -6,10 +6,17 @@ type Todo = {
   completed: boolean;
 };
 
-export const Display = () => {
-  const [todos, setTodos] = useState<Todo[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-
+export const Display = ({
+  todos,
+  setTodos,
+  isLoading,
+  setIsLoading,
+}: {
+  todos: Todo[];
+  setTodos: () => void;
+  isLoading: boolean;
+  setIsLoading: () => void;
+}) => {
   const getData = async () => {
     const res = await fetch("http://localhost:8000/");
     const data = await res.json();
@@ -54,7 +61,7 @@ export const Display = () => {
 
   useEffect(() => {
     getData();
-  }, [todos]);
+  }, [todos, getData]);
 
   return (
     <div className=" ">
