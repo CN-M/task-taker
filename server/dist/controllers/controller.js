@@ -11,7 +11,6 @@ const getTasks = async (req, res, next) => {
     let tasks = JSON.parse(rawData);
     fs_1.default.readFile("./server/todoList.json", "utf-8", (err, data) => {
         let rawData = data;
-        console.log(rawData);
         res.status(200).json(tasks);
     });
 };

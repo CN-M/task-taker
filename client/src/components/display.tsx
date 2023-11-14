@@ -1,10 +1,6 @@
-import { useEffect } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import { cn } from "../lib/utils";
-
-type Todo = {
-  task: string;
-  completed: boolean;
-};
+import { Todo } from "../types";
 
 export const Display = ({
   todos,
@@ -13,18 +9,10 @@ export const Display = ({
   setIsLoading,
 }: {
   todos: Todo[];
-  setTodos: () => void;
+  setTodos: Dispatch<SetStateAction<Todo[]>>;
   isLoading: boolean;
-  setIsLoading: () => void;
+  setIsLoading: Dispatch<SetStateAction<boolean>>;
 }) => {
-  const getData = async () => {
-    const res = await fetch("http://localhost:8000/");
-    const data = await res.json();
-
-    setTodos(data);
-    setIsLoading(false);
-  };
-
   const deleteTask = async (idx: number) => {
     try {
       const res = await fetch("http://localhost:8000/", {
@@ -35,8 +23,12 @@ export const Display = ({
         body: JSON.stringify({ idx }),
       });
 
+      todos.splice(idx, 1);
+
+      setTodos([...todos]);
+
       const data = await res.json();
-      console.log("succcess", data);
+      return data;
     } catch (err) {
       console.error("Error:", err);
     }
@@ -52,48 +44,68 @@ export const Display = ({
         body: JSON.stringify({ idx }),
       });
 
+      if (todos[idx].completed === true) {
+        todos[idx].completed = false;
+      } else {
+        todos[idx].completed = true;
+      }
+
+      setTodos([...todos]);
+
       const data = await res.json();
-      console.log("succcess", data);
+      return data;
     } catch (err) {
       console.error("Error:", err);
     }
   };
 
   useEffect(() => {
+    const getData = async () => {
+      const res = await fetch("http://localhost:8000/");
+      const data = await res.json();
+
+      setTodos(data);
+      setIsLoading(false);
+    };
+
     getData();
-  }, [todos, getData]);
+  }, [setIsLoading, setTodos]);
 
   return (
     <div className=" ">
       <div className="space-y-3">
         {isLoading ? (
-          <p>Loadding tasks...</p>
+          <p>Loading tasks...</p>
         ) : (
           <>
-            {todos?.map((todo, idx) => (
-              <div
-                key={idx}
-                onDoubleClick={() => updateTask(idx)}
-                className="border rounded-md p-3 border-emerald-300"
-              >
-                <div className="flex justify-around py-2 px-10 gap-3 hover:cursor-pointer">
-                  <p
-                    className={cn(
-                      "text-2xl",
-                      todo.completed ? "line-through" : ""
-                    )}
-                  >
-                    {todo.task}
-                  </p>
-                  <button
-                    onClick={() => deleteTask(idx)}
-                    className="bg-red-500 text-sm text-white tracking-widest border-none hover:bg-red-400"
-                  >
-                    Delete
-                  </button>
+            {todos.length < 1 ? (
+              <h3>You have no tasks to display</h3>
+            ) : (
+              todos?.map((todo, idx) => (
+                <div
+                  key={idx}
+                  onDoubleClick={() => updateTask(idx)}
+                  className="border rounded-md p-3 border-emerald-300"
+                >
+                  <div className="flex justify-around py-2 px-10 gap-3 hover:cursor-pointer">
+                    <p
+                      className={cn(
+                        "text-2xl",
+                        todo.completed ? "line-through" : ""
+                      )}
+                    >
+                      {todo.task}
+                    </p>
+                    <button
+                      onClick={() => deleteTask(idx)}
+                      className="bg-red-500 text-sm text-white tracking-widest border-none hover:bg-red-400"
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </>
         )}
       </div>

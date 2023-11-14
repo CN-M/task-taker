@@ -20,7 +20,12 @@ function App() {
         isLoading={isLoading}
         setIsLoading={setIsLoading}
       />
-      <AddTask task={task} setTask={setTask} />
+      <AddTask
+        task={task}
+        setTask={setTask}
+        todos={todos}
+        setTodos={setTodos}
+      />
     </div>
   );
 }

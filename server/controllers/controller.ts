@@ -14,7 +14,6 @@ export const getTasks = async (
 
   fs.readFile("./server/todoList.json", "utf-8", (err, data) => {
     let rawData = data;
-    console.log(rawData);
 
     res.status(200).json(tasks);
   });
