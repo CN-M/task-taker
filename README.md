@@ -1,7 +1,7 @@
 ## Task Taker
 
 A small task taking app built with Typescript, React (using Vite), Express.js, Tailwind, and a mock database using a JSON file.
-I hhadn't written an Express server with "vanilla" React in a while, so I made this to get my feet wet again.
+I hadn't written an Express server with "vanilla" React in a while, so I made this to get my feet wet again.
 
 ## Getting Started
 
