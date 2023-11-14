@@ -41,4 +41,4 @@ You can set the port for the server in the .env file. The default is 3000.
 PORT=8000
 ```
 
-Open [http://localhost:3000](http://localhost:5173) with your browser to see the result.
+Open [http://localhost:5173](http://localhost:5173) with your browser to see the result.

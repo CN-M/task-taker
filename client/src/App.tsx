@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div className="h-full w-full flex flex-col justify-center space-y-4">
-      <h1>My Tasks</h1>
+      <h1>Task Taker</h1>
       <Display
         todos={todos}
         setTodos={setTodos}
