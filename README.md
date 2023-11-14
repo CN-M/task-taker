@@ -8,7 +8,7 @@ I hhadn't written an Express server with "vanilla" React in a while, so I made t
 Clone the repository
 
 ```bash
-git clone git@github.com:CN-M/express-server.git
+git clone git@github.com:CN-M/task-taker.git
 ```
 
 Install dependencies
