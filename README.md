@@ -29,10 +29,16 @@ To run the server
 pnpm run server
 ```
 
+To run the client and server concurrently _WHILE DEVELOPING_
+
+```bash
+pnpm run production
+```
+
 To run the client and server concurrently
 
 ```bash
-pnpm run project
+pnpm run production
 ```
 
 You can set the port for the server in the .env file. The default is 3000.

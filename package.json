@@ -11,7 +11,8 @@
     "dev": "nodemon ./server/dist/app.js",
     "server": "concurrently \"pnpm run watch\" \"pnpm run dev\"",
     "client": "pnpm run --prefix client dev",
-    "project": "concurrently \"pnpm run server\" \"pnpm run client\""
+    "project": "concurrently \"pnpm run server\" \"pnpm run client\"",
+    "production": "concurrently \"pnpm run start\" \"pnpm run client\""
   },
   "keywords": [],
   "author": "",
