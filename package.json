@@ -18,21 +18,21 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "clsx": "^2.0.0",
+    "clsx": "^2.1.0",
     "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
     "http-errors": "^2.0.0",
-    "tailwind-merge": "^2.0.0"
+    "tailwind-merge": "^2.2.2"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.16",
+    "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/http-errors": "^2.0.4",
-    "@types/node": "^20.9.0",
+    "@types/node": "^20.12.2",
     "concurrently": "^8.2.2",
-    "nodemon": "^3.0.1",
-    "prettier": "^3.0.3",
-    "typescript": "^5.2.2"
+    "nodemon": "^3.1.0",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.3"
   }
 }
