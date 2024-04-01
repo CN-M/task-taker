@@ -5,15 +5,15 @@ import {
   deleteTask,
   getTasks,
   updateTask,
-} from "../controllers/controller";
+} from "../controllers/taskController";
 
-const indexRouter = express.Router();
+const taskRouter = express.Router();
 
-indexRouter
+taskRouter
   .route("/")
   .get(getTasks)
   .post(createTask)
   .patch(updateTask)
   .delete(deleteTask);
 
-export default indexRouter;
+export default taskRouter;

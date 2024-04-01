@@ -7,7 +7,7 @@ dotenv.config();
 
 const { PORT } = process.env;
 
-import indexRouter from "./routes/index";
+import taskRouter from "./routes/taskRoute";
 
 const app: Express = express();
 const port = PORT || 3000;
@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Routes
-app.use("/", indexRouter);
+app.use("/", taskRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
