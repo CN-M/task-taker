@@ -68,6 +68,7 @@ export const deleteTask = async (
   next: NextFunction
 ) => {
   const { idx } = req.body;
+
   const tasks = readData();
 
   tasks.splice(idx, 1);

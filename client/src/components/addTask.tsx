@@ -26,6 +26,7 @@ export const AddTask = ({
         task: task,
         completed: false,
       };
+
       setTodos([...todos, newTodo]);
 
       const data = await res.json();

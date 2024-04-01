@@ -44,11 +44,7 @@ export const Display = ({
         body: JSON.stringify({ idx }),
       });
 
-      if (todos[idx].completed === true) {
-        todos[idx].completed = false;
-      } else {
-        todos[idx].completed = true;
-      }
+      todos[idx].completed = !todos[idx].completed;
 
       setTodos([...todos]);
 
